@@ -20,13 +20,11 @@ void read_cb(bufferevent *bev, void *arg)
         }
         else
         {   
-            spdlog::default_logger()->debug("服务器读取了一条信息 {}", rec);
-            bufferevent_enable(bev, EV_WRITE);
-            spdlog::default_logger()->debug("服务器可写打开");
-            // bufferevent_write(bev, buf, sizeof(buf));	
+            RequestMgr reqmgr(bev, rec);
+            reqmgr.parse();
             return;
         }
-    }
+    };
 }
 
 void write_cb(bufferevent *bev, void *arg)
@@ -40,9 +38,6 @@ void accept_cb(evconnlistener *listener, evutil_socket_t fd, sockaddr *addr, int
 
 	spdlog::default_logger()->info("新连接 {} 到来", fd);	
     Server *serv = static_cast<Server *>(arg);
-
-    // 记录当前socket是否已发起登录
-    serv->m_conns[fd] = 0;
     
     // 创建bufferevent 并指定事件处理器
     auto bev = bufferevent_socket_new(serv->m_base, fd, BEV_OPT_CLOSE_ON_FREE);

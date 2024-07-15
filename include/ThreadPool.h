@@ -1,6 +1,4 @@
-#ifndef _THREADPOOL_H_
-#define _THREADPOOL_H_
-
+#pragma once
 #include <event2/thread.h> // 如果需要使用多线程，可能需要引入线程支持
 
 #include <thread>
@@ -28,5 +26,3 @@ private:
     std::mutex m_qmutex;
     std::condition_variable m_cv;
 };
-
-#endif //_THREADPOOL_H_
