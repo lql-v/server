@@ -153,6 +153,54 @@ src/ConnMgr.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConnMgr.cpp.s
 .PHONY : src/ConnMgr.cpp.s
 
+src/DBConn.o: src/DBConn.cpp.o
+.PHONY : src/DBConn.o
+
+# target to build an object file
+src/DBConn.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConn.cpp.o
+.PHONY : src/DBConn.cpp.o
+
+src/DBConn.i: src/DBConn.cpp.i
+.PHONY : src/DBConn.i
+
+# target to preprocess a source file
+src/DBConn.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConn.cpp.i
+.PHONY : src/DBConn.cpp.i
+
+src/DBConn.s: src/DBConn.cpp.s
+.PHONY : src/DBConn.s
+
+# target to generate assembly for a file
+src/DBConn.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConn.cpp.s
+.PHONY : src/DBConn.cpp.s
+
+src/DBConnPool.o: src/DBConnPool.cpp.o
+.PHONY : src/DBConnPool.o
+
+# target to build an object file
+src/DBConnPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConnPool.cpp.o
+.PHONY : src/DBConnPool.cpp.o
+
+src/DBConnPool.i: src/DBConnPool.cpp.i
+.PHONY : src/DBConnPool.i
+
+# target to preprocess a source file
+src/DBConnPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConnPool.cpp.i
+.PHONY : src/DBConnPool.cpp.i
+
+src/DBConnPool.s: src/DBConnPool.cpp.s
+.PHONY : src/DBConnPool.s
+
+# target to generate assembly for a file
+src/DBConnPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConnPool.cpp.s
+.PHONY : src/DBConnPool.cpp.s
+
 src/RequestMgr.o: src/RequestMgr.cpp.o
 .PHONY : src/RequestMgr.o
 
@@ -285,6 +333,12 @@ help:
 	@echo "... src/ConnMgr.o"
 	@echo "... src/ConnMgr.i"
 	@echo "... src/ConnMgr.s"
+	@echo "... src/DBConn.o"
+	@echo "... src/DBConn.i"
+	@echo "... src/DBConn.s"
+	@echo "... src/DBConnPool.o"
+	@echo "... src/DBConnPool.i"
+	@echo "... src/DBConnPool.s"
 	@echo "... src/RequestMgr.o"
 	@echo "... src/RequestMgr.i"
 	@echo "... src/RequestMgr.s"

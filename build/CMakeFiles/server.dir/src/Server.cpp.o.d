@@ -198,41 +198,78 @@ CMakeFiles/server.dir/src/Server.cpp.o: \
  /usr/include/c++/11/bits/hashtable.h \
  /usr/include/c++/11/bits/hashtable_policy.h \
  /usr/include/c++/11/bits/enable_special_members.h \
- /usr/include/c++/11/bits/unordered_set.h /usr/include/event2/event.h \
- /usr/include/event2/visibility.h /usr/include/event2/event-config.h \
- /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/event2/util.h \
- /usr/include/netdb.h /usr/include/netinet/in.h \
- /usr/include/x86_64-linux-gnu/sys/socket.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
- /usr/include/x86_64-linux-gnu/bits/socket.h \
- /usr/include/x86_64-linux-gnu/bits/socket_type.h \
- /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
- /usr/include/x86_64-linux-gnu/asm/socket.h \
- /usr/include/asm-generic/socket.h /usr/include/linux/posix_types.h \
- /usr/include/linux/stddef.h \
- /usr/include/x86_64-linux-gnu/asm/posix_types.h \
- /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
- /usr/include/asm-generic/posix_types.h \
- /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
- /usr/include/asm-generic/bitsperlong.h \
- /usr/include/x86_64-linux-gnu/asm/sockios.h \
- /usr/include/asm-generic/sockios.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/rpc/netdb.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
- /usr/include/x86_64-linux-gnu/bits/netdb.h \
- /usr/include/event2/listener.h /usr/include/event2/bufferevent.h \
- /usr/include/event2/thread.h /usr/include/spdlog/spdlog.h \
- /usr/include/spdlog/common.h /usr/include/spdlog/tweakme.h \
- /usr/include/spdlog/details/null_mutex.h /usr/include/c++/11/atomic \
- /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
- /usr/include/c++/11/unordered_map \
- /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/bits/unordered_set.h \
+ /home/tiki/Desktop/code/pro/include/DBConnPool.h \
+ /home/tiki/Desktop/code/pro/include/DBConn.h \
+ /usr/include/mysql_connection.h /usr/include/cppconn/connection.h \
+ /usr/include/cppconn/build_config.h /usr/include/cppconn/warning.h \
+ /usr/include/cppconn/sqlstring.h /usr/include/c++/11/algorithm \
  /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
  /usr/include/c++/11/bits/uniform_int_dist.h \
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
+ /usr/include/c++/11/unordered_map \
+ /usr/include/c++/11/bits/unordered_map.h /usr/include/c++/11/iostream \
+ /usr/include/cppconn/variant.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h /usr/include/c++/11/bits/list.tcc \
+ /usr/include/cppconn/exception.h /usr/include/boost/shared_ptr.hpp \
+ /usr/include/boost/smart_ptr/shared_ptr.hpp \
+ /usr/include/boost/smart_ptr/detail/shared_count.hpp \
+ /usr/include/boost/smart_ptr/bad_weak_ptr.hpp \
+ /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
+ /usr/include/boost/config/detail/select_compiler_config.hpp \
+ /usr/include/boost/config/compiler/gcc.hpp \
+ /usr/include/boost/config/detail/select_stdlib_config.hpp \
+ /usr/include/c++/11/version \
+ /usr/include/boost/config/stdlib/libstdcpp3.hpp /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h \
+ /usr/include/boost/config/detail/select_platform_config.hpp \
+ /usr/include/boost/config/platform/linux.hpp \
+ /usr/include/boost/config/detail/posix_features.hpp \
+ /usr/include/boost/config/detail/suffix.hpp \
+ /usr/include/boost/config/helper_macros.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_counted_base.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_has_gcc_intrinsics.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_has_sync_intrinsics.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_atomic.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_typeinfo_.hpp \
+ /usr/include/boost/cstdint.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_counted_impl.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_noexcept.hpp \
+ /usr/include/boost/checked_delete.hpp \
+ /usr/include/boost/core/checked_delete.hpp \
+ /usr/include/boost/core/addressof.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp \
+ /usr/include/boost/throw_exception.hpp \
+ /usr/include/boost/assert/source_location.hpp \
+ /usr/include/boost/current_function.hpp \
+ /usr/include/boost/config/workaround.hpp \
+ /usr/include/boost/exception/exception.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_convertible.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_nullptr_t.hpp \
+ /usr/include/boost/assert.hpp /usr/include/assert.h \
+ /usr/include/boost/smart_ptr/detail/spinlock_pool.hpp \
+ /usr/include/boost/smart_ptr/detail/spinlock.hpp \
+ /usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp \
+ /usr/include/boost/smart_ptr/detail/yield_k.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_thread_pause.hpp \
+ /usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp \
+ /usr/include/boost/config/pragma_message.hpp \
+ /usr/include/boost/smart_ptr/detail/operator_bool.hpp \
+ /usr/include/boost/smart_ptr/detail/local_sp_deleter.hpp \
+ /usr/include/boost/smart_ptr/detail/local_counted_base.hpp \
+ /usr/include/boost/scoped_ptr.hpp \
+ /usr/include/boost/smart_ptr/scoped_ptr.hpp /usr/include/spdlog/spdlog.h \
+ /usr/include/spdlog/common.h /usr/include/spdlog/tweakme.h \
+ /usr/include/spdlog/details/null_mutex.h /usr/include/c++/11/atomic \
  /usr/include/spdlog/fmt/fmt.h /usr/include/fmt/core.h \
  /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
  /usr/include/fmt/format.h /usr/include/c++/11/cmath /usr/include/math.h \
@@ -257,9 +294,7 @@ CMakeFiles/server.dir/src/Server.cpp.o: \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/fmt/core.h \
- /usr/include/spdlog/common-inl.h /usr/include/c++/11/algorithm \
- /usr/include/c++/11/pstl/glue_algorithm_defs.h \
- /usr/include/spdlog/details/registry.h \
+ /usr/include/spdlog/common-inl.h /usr/include/spdlog/details/registry.h \
  /usr/include/spdlog/details/registry-inl.h \
  /usr/include/spdlog/details/periodic_worker.h \
  /usr/include/c++/11/condition_variable /usr/include/c++/11/thread \
@@ -275,20 +310,19 @@ CMakeFiles/server.dir/src/Server.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
  /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
  /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
  /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/linux/falloc.h /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
- /usr/include/x86_64-linux-gnu/bits/environments.h \
- /usr/include/x86_64-linux-gnu/bits/confname.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h \
- /usr/include/x86_64-linux-gnu/sys/syscall.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/sys/syscall.h \
  /usr/include/x86_64-linux-gnu/asm/unistd.h \
  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
  /usr/include/x86_64-linux-gnu/bits/syscall.h \
@@ -296,7 +330,7 @@ CMakeFiles/server.dir/src/Server.cpp.o: \
  /usr/include/spdlog/details/log_msg_buffer.h \
  /usr/include/spdlog/details/log_msg_buffer-inl.h \
  /usr/include/spdlog/details/circular_q.h /usr/include/c++/11/cassert \
- /usr/include/assert.h /usr/include/spdlog/details/backtracer-inl.h \
+ /usr/include/spdlog/details/backtracer-inl.h \
  /usr/include/spdlog/logger-inl.h /usr/include/spdlog/sinks/sink.h \
  /usr/include/spdlog/formatter.h /usr/include/spdlog/sinks/sink-inl.h \
  /usr/include/spdlog/pattern_formatter.h \
@@ -307,7 +341,38 @@ CMakeFiles/server.dir/src/Server.cpp.o: \
  /usr/include/spdlog/sinks/ansicolor_sink-inl.h \
  /usr/include/spdlog/version.h \
  /usr/include/spdlog/details/synchronous_factory.h \
- /usr/include/spdlog/spdlog-inl.h \
+ /usr/include/spdlog/spdlog-inl.h /usr/include/cppconn/driver.h \
+ /usr/include/cppconn/connection.h /usr/include/cppconn/resultset.h \
+ /usr/include/cppconn/config.h /usr/include/inttypes.h \
+ /usr/include/cppconn/resultset_metadata.h \
+ /usr/include/cppconn/datatype.h /usr/include/cppconn/exception.h \
+ /usr/include/cppconn/statement.h /usr/include/cppconn/resultset.h \
+ /usr/include/c++/11/queue /usr/include/c++/11/bits/stl_queue.h \
+ /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
+ /home/tiki/Desktop/code/pro/libevent/include/event2/event.h \
+ /home/tiki/Desktop/code/pro/libevent/include/event2/visibility.h \
+ /home/tiki/Desktop/code/pro/libevent/include/event2/event-config.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h \
+ /home/tiki/Desktop/code/pro/libevent/include/event2/util.h \
+ /usr/include/netdb.h /usr/include/netinet/in.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/rpc/netdb.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
+ /usr/include/x86_64-linux-gnu/bits/netdb.h \
+ /home/tiki/Desktop/code/pro/libevent/include/event2/listener.h \
+ /home/tiki/Desktop/code/pro/libevent/include/event2/bufferevent.h \
+ /home/tiki/Desktop/code/pro/libevent/include/event2/thread.h \
  /home/tiki/Desktop/code/pro/include/ThreadPool.h \
- /usr/include/c++/11/iostream /usr/include/c++/11/queue \
- /usr/include/c++/11/bits/stl_queue.h /usr/include/arpa/inet.h
+ /usr/include/arpa/inet.h

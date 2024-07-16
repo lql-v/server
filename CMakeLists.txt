@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22.1)
 project(server)
 
-set(BUILD_PATH PROJECT_SOURCE_DIR/build)
+set(BUILD_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LINK_LIB pthread event spdlog fmt jsoncpp mysqlcppconn)
 
 # 包含头文件

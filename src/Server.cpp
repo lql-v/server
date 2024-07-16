@@ -1,58 +1,79 @@
 #include "Server.h"
 
+// 读回调函数
 void read_cb(bufferevent *bev, void *arg)
-{
+{   
+
     spdlog::default_logger()->debug("调用了read_cb");
     char buf[1024] = {0};
     std::string rec;
+    // 读取来自用户的信息
     while(1)
-    {
+    {   
         size_t size = bufferevent_read(bev, buf, sizeof(buf));
-        if(size < 0)
+        if(size < 0) // 读取大小小于0 出错
         {
             spdlog::default_logger()->error("读取出错");	
 			bufferevent_free(bev);
 			exit(1);
         }
-        else if (size > 0)
+        else if (size > 0) // 仍然有数据
         {
             rec.append(buf, size);
         }
-        else
+        else // 读取数据量为0 读取完成
         {   
+            // 创建需求管理器
             RequestMgr reqmgr(bev, rec);
-            reqmgr.parse();
+            // 解析需求并执行相应函数
+            reqmgr.process();
             return;
         }
     };
 }
 
+#ifdef __DEBUG
+// 写回调函数
 void write_cb(bufferevent *bev, void *arg)
 {
     spdlog::default_logger()->debug("调用了write_cb");
-
 }
+#endif
 
-void accept_cb(evconnlistener *listener, evutil_socket_t fd, sockaddr *addr, int socklen, void *arg) 
+// 接受连接回调函数
+void accept_cb(evconnlistener *listener, evutil_socket_t fd, 
+                sockaddr *addr, int socklen, void *arg) 
 {   
 
 	spdlog::default_logger()->info("新连接 {} 到来", fd);	
-    Server *serv = static_cast<Server *>(arg);
-    
+    // 获取事件处理器
+    auto serv = static_cast<Server*>(arg);
+
     // 创建bufferevent 并指定事件处理器
     auto bev = bufferevent_socket_new(serv->m_base, fd, BEV_OPT_CLOSE_ON_FREE);
-    
+
     // 设置读写回调函数
     serv->m_pool->enqueue([bev]
-    { 
+    {   
+#ifdef __DEBUG
         bufferevent_setcb(bev, read_cb, write_cb, NULL, nullptr);
+#else 
+        bufferevent_setcb(bev, read_cb, NULL, NULL, nullptr);
+#endif
         bufferevent_enable(bev, EV_READ);
     });  
 }
 
+// 服务器初始化
 void Server::init()
-{
+{   
+
+    // 设置日志级别
+#ifdef __DEBUG
     spdlog::set_level(spdlog::level::debug);
+#else
+    spdlog::set_level(spdlog::level::info);
+#endif
     spdlog::default_logger()->debug("服务器初始化中");	
 
     // 初始化事件集
@@ -83,6 +104,7 @@ void Server::init()
     spdlog::default_logger()->debug("服务器初始化完成");	
 }
 
+// 服务器运行
 void Server::run()
 {
     spdlog::default_logger()->info("服务器启动，监听端口：{}", ntohs(m_sin.sin_port));
@@ -95,8 +117,11 @@ Server::Server() {}
 Server::~Server()
 {
     spdlog::default_logger()->info("服务器关闭中");	
-    delete m_pool;
-    m_pool=nullptr;
+    if(m_pool!=nullptr)
+    {
+        delete m_pool;
+        m_pool=nullptr;
+    }    
     evconnlistener_free(m_listener);
     event_base_free(m_base);
     spdlog::default_logger()->info("服务器关闭成功");

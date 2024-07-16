@@ -14,6 +14,5 @@ private:
     static ConnMgr* m_instance;
 	static std::mutex m_mutex;
 	ConnMgr(){};
-    
 };
 

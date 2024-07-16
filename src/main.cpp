@@ -1,5 +1,5 @@
 #include "Server.h"
-
+#define __DEBUG
 int main(){
     Server *serv=new Server();
     serv->init();

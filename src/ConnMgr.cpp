@@ -1,5 +1,8 @@
 #include "ConnMgr.h"
 
+ConnMgr* ConnMgr::m_instance=nullptr;
+std::mutex ConnMgr::m_mutex;
+
 ConnMgr* ConnMgr::getinstance()
 {
     if (m_instance == nullptr)
@@ -25,6 +28,3 @@ void ConnMgr::Add(const std::string username)
     return;
 }
 
-ConnMgr* ConnMgr::m_instance=nullptr;
-std::mutex ConnMgr::m_mutex;
- 
