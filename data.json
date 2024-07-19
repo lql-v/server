@@ -1,0 +1,26 @@
+{
+    "client_login_msg":
+    {   
+        "request":"login",
+        "userdate":
+        {
+            "username":"name",
+            "password":"pwd"
+        }
+    },
+    "server_success_retmsg":
+    {
+        "status": 0,
+        "msg":"success_msg"
+    },
+    "server_login_error":
+    {
+        "status":1,
+        "msg":"wrong_msg"
+    },
+    "server_signup_error":
+    {
+        "status":2,
+        "msg":"用户名已存在/插入数据库失败"
+    }
+}

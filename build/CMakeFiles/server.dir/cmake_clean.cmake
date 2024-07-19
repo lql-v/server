@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/src/base64.cpp.o.d"
   "CMakeFiles/server.dir/src/main.cpp.o"
   "CMakeFiles/server.dir/src/main.cpp.o.d"
+  "CMakeFiles/server.dir/src/md5.cpp.o"
+  "CMakeFiles/server.dir/src/md5.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.
