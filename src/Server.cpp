@@ -44,17 +44,18 @@ void write_cb(bufferevent *bev, void *arg)
 void accept_cb(evconnlistener *listener, evutil_socket_t fd, 
                 sockaddr *addr, int socklen, void *arg) 
 {   
-
-	spdlog::default_logger()->info("新连接 {} 到来", fd);	
-    // 获取事件处理器
-    auto serv = static_cast<Server*>(arg);
-
-    // 创建bufferevent 并指定事件处理器
-    auto bev = bufferevent_socket_new(serv->m_base, fd, BEV_OPT_CLOSE_ON_FREE);
+    char ip[32] = {0};
+    evutil_inet_ntop(AF_INET, addr, ip, sizeof(ip)-1);
+	spdlog::default_logger()->info("ip:{} fd:{} 客户端连接 ", ip, fd);	
+    // struct event_base *base = static_cast<event_base*>(arg);
 
     // 设置读写回调函数
-    serv->m_pool->enqueue([bev]
+    serv->m_pool->enqueue([]
     {   
+        struct event_base base = event_base_new();
+        // 创建bufferevent 并指定事件处理器
+        struct bufferevent *bev = bufferevent_socket_new(base, fd, BEV_OPT_CLOSE_ON_FREE);
+        
 #ifdef __DEBUG
         bufferevent_setcb(bev, read_cb, write_cb, NULL, nullptr);
 #else 
@@ -67,15 +68,12 @@ void accept_cb(evconnlistener *listener, evutil_socket_t fd,
 // 服务器初始化
 void Server::init()
 {   
-
     // 设置日志级别
 #ifdef __DEBUG
     spdlog::set_level(spdlog::level::debug);
 #else
     spdlog::set_level(spdlog::level::info);
 #endif
-    spdlog::default_logger()->debug("服务器初始化中");	
-
     // 初始化事件集
     m_base = event_base_new();
     if(m_base == nullptr)
@@ -84,13 +82,22 @@ void Server::init()
         exit(1);
     }
 
+    // window初始化socket库
+#ifdef _WIN32
+    WSADATA wsdata;
+    if(WSAStartup(MAKEWORD(2,2), &wsdata) != 0)
+    {
+        spdlog::default_logger()->error("WSAStartup失败");
+        exit(1);
+    }
+#endif
+
     // 初始化服务端socket
     m_sin.sin_family = AF_INET;
-    m_sin.sin_addr.s_addr = htonl(INADDR_ANY);
-    m_sin.sin_port = htons(8080);
-
+    m_sin.sin_port = htons(m_port);
+    
     // 初始化监听器
-    m_listener = evconnlistener_new_bind(m_base, accept_cb, this,
+    m_listener = evconnlistener_new_bind(m_base, accept_cb, m_base,
                             LEV_OPT_REUSEABLE | LEV_OPT_CLOSE_ON_FREE, -1,
                             (sockaddr*)&m_sin, sizeof(m_sin));
     if(m_listener == nullptr){
@@ -100,13 +107,12 @@ void Server::init()
 
     // 初始化线程池
     m_pool=new ThreadPool(8);
-
-    spdlog::default_logger()->debug("服务器初始化完成");	
 }
 
 // 服务器运行
 void Server::run()
-{
+{   
+    init();
     spdlog::default_logger()->info("服务器启动，监听端口：{}", ntohs(m_sin.sin_port));
     event_base_dispatch(m_base);
     return;
@@ -116,16 +122,26 @@ Server::Server() {}
 
 Server::~Server()
 {
-    spdlog::default_logger()->info("服务器关闭中");	
-    if(m_pool!=nullptr)
+    if(m_pool != nullptr)
     {
         delete m_pool;
-        m_pool=nullptr;
+        m_pool = nullptr;
     }    
-    evconnlistener_free(m_listener);
-    event_base_free(m_base);
-    spdlog::default_logger()->info("服务器关闭成功");
+    if(m_listener != nullptr)
+    {
+        evconnlistener_free(m_listener);
+        m_listener = nullptr;
+    }
 
+    if(m_base !=nullptr)
+    {
+        event_base_free(m_base);
+        m_base = nullptr;
+    }
+    spdlog::default_logger()->info("服务器关闭");
+#ifdef _WIN32
+    WSACleanup();
+#endif
 }
 
 

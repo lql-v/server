@@ -400,4 +400,6 @@ CMakeFiles/server.dir/src/Server.cpp.o: \
  /home/tiki/Desktop/code/pro/libevent/include/event2/bufferevent.h \
  /home/tiki/Desktop/code/pro/libevent/include/event2/thread.h \
  /home/tiki/Desktop/code/pro/include/ThreadPool.h \
- /usr/include/arpa/inet.h
+ /home/tiki/Desktop/code/pro/libevent/include/event2/buffer.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/uio-ext.h /usr/include/arpa/inet.h

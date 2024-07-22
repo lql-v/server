@@ -24,18 +24,20 @@ public:
     Server();
     ~Server();
     /**
-     * @brief 服务器对象初始化
-     */
-    void init();
-    /**
      * @brief 服务器对象运行
      */   
     void run();
 private:
-    struct event_base *m_base=nullptr;              // 事件集合
-    ThreadPool *m_pool=nullptr;                     // 线程池指针
-    struct sockaddr_in m_sin={0};                   // 服务端socket
-    struct evconnlistener *m_listener=nullptr;      // 监听器指针
+    /**
+     * @brief 服务器对象初始化
+     */
+    void init();
+private:
+    struct event_base *m_base = nullptr;              // 事件集合
+    ThreadPool *m_pool= nullptr;                     // 线程池指针
+    struct sockaddr_in m_sin= {0};                   // 服务端socket
+    struct evconnlistener *m_listener = nullptr;      // 监听器指针
+    uint16_t m_port = 8080;
 };
 
 /**
