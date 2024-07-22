@@ -26,7 +26,7 @@ bool DBConn::connect(const string &user,const string &passwd,const string &dbNam
         // 发起连接并进入数据库
         m_conn = m_driver->connect("tcp://" + ip + ":" + to_string(port), user, passwd);
         m_conn->setSchema(dbName);
-        spdlog::default_logger()->debug("一个连接连接数据库成功");
+        // spdlog::default_logger()->debug("一个连接连接数据库成功");
     }
     catch (sql::SQLException &e)
     {   

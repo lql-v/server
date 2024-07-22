@@ -6,9 +6,14 @@
 #include <event2/listener.h>
 #include <event2/bufferevent.h>
 #include <event2/thread.h>
-
+#include <event2/buffer.h>
+#ifdef _WIN32
+#include <winsock.h>
+#else
+#include <sys/socket.h>
+#endif
 #include <spdlog/spdlog.h>
-
+#include <climits>
 #include <arpa/inet.h>
 #include <thread>
 #include <string>
@@ -33,11 +38,12 @@ private:
      */
     void init();
 private:
-    struct event_base *m_base = nullptr;              // 事件集合
-    ThreadPool *m_pool= nullptr;                     // 线程池指针
-    struct sockaddr_in m_sin= {0};                   // 服务端socket
-    struct evconnlistener *m_listener = nullptr;      // 监听器指针
+    struct event_base *m_base=nullptr;              // 事件集合
+    ThreadPool *m_pool=nullptr;                     // 线程池指针
+    struct sockaddr_in m_sin={0};                   // 服务端socket
+    struct evconnlistener *m_listener=nullptr;      // 监听器指针
     uint16_t m_port = 8080;
+
 };
 
 /**

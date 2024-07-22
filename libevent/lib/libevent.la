@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/tiki/Desktop/libevent-2.1.12-stable/../lib/libevent/lib'
+libdir='/home/tiki/Desktop/libevent/lib'

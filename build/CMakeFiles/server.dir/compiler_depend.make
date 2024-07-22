@@ -2059,6 +2059,9 @@ CMakeFiles/server.dir/src/Server.cpp.o: ../src/Server.cpp \
   ../libevent/include/event2/bufferevent.h \
   ../libevent/include/event2/thread.h \
   ../include/ThreadPool.h \
+  ../libevent/include/event2/buffer.h \
+  /usr/include/x86_64-linux-gnu/sys/uio.h \
+  /usr/include/x86_64-linux-gnu/bits/uio-ext.h \
   /usr/include/arpa/inet.h
 
 CMakeFiles/server.dir/src/ThreadPool.cpp.o: ../src/ThreadPool.cpp \
@@ -2995,6 +2998,9 @@ CMakeFiles/server.dir/src/main.cpp.o: ../src/main.cpp \
   ../libevent/include/event2/bufferevent.h \
   ../libevent/include/event2/thread.h \
   ../include/ThreadPool.h \
+  ../libevent/include/event2/buffer.h \
+  /usr/include/x86_64-linux-gnu/sys/uio.h \
+  /usr/include/x86_64-linux-gnu/bits/uio-ext.h \
   /usr/include/arpa/inet.h
 
 CMakeFiles/server.dir/src/md5.cpp.o: ../src/md5.cpp \
@@ -3294,6 +3300,12 @@ CMakeFiles/server.dir/src/md5.cpp.o: ../src/md5.cpp \
 ../src/main.cpp:
 
 /usr/include/arpa/inet.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio-ext.h:
+
+/usr/include/x86_64-linux-gnu/sys/uio.h:
+
+../libevent/include/event2/buffer.h:
 
 ../libevent/include/event2/bufferevent.h:
 

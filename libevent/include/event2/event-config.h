@@ -146,7 +146,7 @@
 /* #undef EVENT__HAVE_LIBWS2_32 */
 
 /* Define if the system has zlib */
-/* #undef EVENT__HAVE_LIBZ */
+#define EVENT__HAVE_LIBZ 1
 
 /* Define to 1 if you have the `mach_absolute_time' function. */
 /* #undef EVENT__HAVE_MACH_ABSOLUTE_TIME */
@@ -422,7 +422,7 @@
 /* #undef EVENT__HAVE_WORKING_KQUEUE */
 
 /* Define to 1 if you have the <zlib.h> header file. */
-/* #undef EVENT__HAVE_ZLIB_H */
+#define EVENT__HAVE_ZLIB_H 1
 
 /* Define to 1 if you have the `_gmtime64' function. */
 /* #undef EVENT__HAVE__GMTIME64 */

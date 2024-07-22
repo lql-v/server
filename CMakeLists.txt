@@ -15,7 +15,7 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC_LIST)
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_PATH})
 
 # 添加 DEBUG 宏
-add_definitions(-D__DEBUG)
+ add_definitions(-D__DEBUG)
 
 # 生成可执行程序
 add_executable(server ${SRC_LIST})

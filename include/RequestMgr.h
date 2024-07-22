@@ -9,7 +9,6 @@
 #include <event2/listener.h>
 #include <event2/bufferevent.h>
 #include <event2/thread.h>
-
 #include <spdlog/spdlog.h>
 #include <string>
 
@@ -44,6 +43,11 @@ private:
      * @param[in] data 已解析用户附带数据集
      */
     void signup(Json::Value data) const;
+    /**
+     * @brief 处理上传图片
+     * @param[in] data 已解析用户附带数据集
+     */
+    void upload(Json::Value data) const;
 
     // void getlist() const;
     struct bufferevent *m_bev=nullptr;          // 事件集

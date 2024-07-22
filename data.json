@@ -1,7 +1,7 @@
 {
-    "client_login_msg":
+    "client_login/signup_msg":
     {   
-        "request":"login",
+        "request":"login/signup",
         "userdate":
         {
             "username":"name",
@@ -22,5 +22,48 @@
     {
         "status":2,
         "msg":"用户名已存在/插入数据库失败"
-    }
+    },
+    "client_upload_msg":
+    {
+        "request":"upload",
+        "userdata":
+        {
+            "username":"",
+            "imgname":"",
+            "imgdata":""
+        }
+    },
+    "client_getlist_msg":
+    {
+        "request":"getlist",
+        "username":""
+    },
+    "server_getlist_ret_msg":
+    {
+        "imglist":
+        [
+            "name1",
+            "name2"
+        ]
+    },
+    "client_getimg_msg":
+    {
+        "request":"getimg",
+        "userdata":
+        {
+            "username":"",
+            "imgname":""
+        }
+    },
+    "server_img_ret_msg":
+    {
+        "status":0,
+        "imgdata":""
+    },
+    "server_img_ret_error_msg":
+    {
+        "status":1,
+        "msg":""
+    },
+    "aes128key":"FileStoreService"
 }

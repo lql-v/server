@@ -1,6 +1,6 @@
 #libevent pkg-config source file
 
-prefix=/home/tiki/Desktop/libevent-2.1.12-stable/../lib/libevent
+prefix=/home/tiki/Desktop/libevent
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
