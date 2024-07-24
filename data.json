@@ -33,6 +33,20 @@
             "imgdata":""
         }
     },
+    "server_upload_success_msg":
+    {
+        "status":0
+    },
+    "server_upload_ret_wrong2_msg":
+    {
+        "status":3,
+        "imgname":"imgname"
+    },
+    "server_upload_ret_wrong1_msg":
+    {
+        "status":4,
+        "imgname":"imgname"
+    },
     "client_getlist_msg":
     {
         "request":"getlist",

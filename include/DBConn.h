@@ -6,9 +6,11 @@
 #include <cppconn/driver.h>
 #include <cppconn/resultset.h>
 #include <cppconn/exception.h>
+#include <cppconn/prepared_statement.h>
 #include <cppconn/statement.h>
 #include <chrono>
 #include <string>
+#include <sstream>
 using namespace std;
 
 /**
@@ -68,6 +70,13 @@ public:
      * @return 成功返回结果,失败返回空string     
      */
     std::string value(std::string key);
+
+    /**
+     * @brief 准备一个语句用于插入图片数据
+     * @param[in] imgname 图像名字
+     * @param[in] imgdata 图像数据
+     */
+    bool prepareUpdate(std::string username, std::string imgname, std::string imgdata);
 
     /**
      * @brief 释放结果集

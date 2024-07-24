@@ -188,7 +188,6 @@ CMakeFiles/server.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
  /usr/include/c++/11/stack /usr/include/c++/11/bits/stl_stack.h \
  /usr/include/jsoncpp/json/writer.h \
- /home/tiki/Desktop/code/pro/include/base64.h \
  /home/tiki/Desktop/code/pro/include/ConnMgr.h /usr/include/c++/11/mutex \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/limits /usr/include/c++/11/ctime \
@@ -199,6 +198,33 @@ CMakeFiles/server.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/hashtable_policy.h \
  /usr/include/c++/11/bits/enable_special_members.h \
  /usr/include/c++/11/bits/unordered_set.h \
+ /home/tiki/Desktop/code/pro/include/Sender.h \
+ /home/tiki/Desktop/code/pro/include/base64.h \
+ /usr/local/include/event2/event.h /usr/local/include/event2/visibility.h \
+ /usr/local/include/event2/event-config.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h \
+ /usr/local/include/event2/util.h /usr/include/netdb.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/rpc/netdb.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
+ /usr/include/x86_64-linux-gnu/bits/netdb.h \
+ /usr/local/include/event2/bufferevent.h \
  /home/tiki/Desktop/code/pro/include/DBConnPool.h \
  /home/tiki/Desktop/code/pro/include/DBConn.h \
  /usr/include/mysql_connection.h /usr/include/cppconn/connection.h \
@@ -267,12 +293,17 @@ CMakeFiles/server.dir/src/main.cpp.o: \
  /usr/include/boost/smart_ptr/detail/local_sp_deleter.hpp \
  /usr/include/boost/smart_ptr/detail/local_counted_base.hpp \
  /usr/include/boost/scoped_ptr.hpp \
- /usr/include/boost/smart_ptr/scoped_ptr.hpp /usr/include/spdlog/spdlog.h \
- /usr/include/spdlog/common.h /usr/include/spdlog/tweakme.h \
- /usr/include/spdlog/details/null_mutex.h /usr/include/c++/11/atomic \
- /usr/include/spdlog/fmt/fmt.h /usr/include/fmt/core.h \
+ /usr/include/boost/smart_ptr/scoped_ptr.hpp \
+ /home/tiki/Desktop/code/pro/include/spdlog/spdlog.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/common.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/null_mutex.h \
+ /usr/include/c++/11/atomic \
+ /home/tiki/Desktop/code/pro/include/spdlog/tweakme.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/fmt/fmt.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/fmt/bundled/core.h \
  /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
- /usr/include/fmt/format.h /usr/include/c++/11/cmath /usr/include/math.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/fmt/bundled/format.h \
+ /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
@@ -293,62 +324,81 @@ CMakeFiles/server.dir/src/main.cpp.o: \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/fmt/core.h \
- /usr/include/spdlog/common-inl.h /usr/include/spdlog/details/registry.h \
- /usr/include/spdlog/details/registry-inl.h \
- /usr/include/spdlog/details/periodic_worker.h \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /home/tiki/Desktop/code/pro/include/spdlog/fmt/bundled/core.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/fmt/bundled/format-inl.h \
+ /usr/include/c++/11/climits \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/fmt/bundled/format.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/common-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/registry.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/periodic_worker.h \
  /usr/include/c++/11/condition_variable /usr/include/c++/11/thread \
  /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h \
- /usr/include/spdlog/details/periodic_worker-inl.h \
- /usr/include/spdlog/logger.h /usr/include/spdlog/details/log_msg.h \
- /usr/include/spdlog/details/log_msg-inl.h \
- /usr/include/spdlog/details/os.h /usr/include/spdlog/details/os-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/periodic_worker-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/registry-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/logger.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/backtracer.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/circular_q.h \
+ /usr/include/c++/11/cassert \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/log_msg_buffer.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/log_msg.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/log_msg-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/os.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/os-inl.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
  /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
  /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
  /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
- /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
- /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
- /usr/include/linux/stddef.h \
- /usr/include/x86_64-linux-gnu/asm/posix_types.h \
- /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
- /usr/include/asm-generic/posix_types.h \
  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
  /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/sys/syscall.h \
  /usr/include/x86_64-linux-gnu/asm/unistd.h \
  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
  /usr/include/x86_64-linux-gnu/bits/syscall.h \
- /usr/include/spdlog/details/backtracer.h \
- /usr/include/spdlog/details/log_msg_buffer.h \
- /usr/include/spdlog/details/log_msg_buffer-inl.h \
- /usr/include/spdlog/details/circular_q.h /usr/include/c++/11/cassert \
- /usr/include/spdlog/details/backtracer-inl.h \
- /usr/include/spdlog/logger-inl.h /usr/include/spdlog/sinks/sink.h \
- /usr/include/spdlog/formatter.h /usr/include/spdlog/sinks/sink-inl.h \
- /usr/include/spdlog/pattern_formatter.h \
- /usr/include/spdlog/pattern_formatter-inl.h \
- /usr/include/spdlog/details/fmt_helper.h \
- /usr/include/spdlog/sinks/ansicolor_sink.h \
- /usr/include/spdlog/details/console_globals.h \
- /usr/include/spdlog/sinks/ansicolor_sink-inl.h \
- /usr/include/spdlog/version.h \
- /usr/include/spdlog/details/synchronous_factory.h \
- /usr/include/spdlog/spdlog-inl.h /usr/include/cppconn/driver.h \
- /usr/include/cppconn/connection.h /usr/include/cppconn/resultset.h \
- /usr/include/cppconn/config.h /usr/include/inttypes.h \
- /usr/include/cppconn/resultset_metadata.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/log_msg_buffer-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/backtracer-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/logger-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/pattern_formatter.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/formatter.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/pattern_formatter-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/fmt_helper.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/mdc.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/sinks/sink.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/sinks/sink-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/sinks/ansicolor_sink.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/console_globals.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/sinks/ansicolor_sink-inl.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/details/synchronous_factory.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/version.h \
+ /home/tiki/Desktop/code/pro/include/spdlog/spdlog-inl.h \
+ /usr/include/cppconn/driver.h /usr/include/cppconn/connection.h \
+ /usr/include/cppconn/resultset.h /usr/include/cppconn/config.h \
+ /usr/include/inttypes.h /usr/include/cppconn/resultset_metadata.h \
  /usr/include/cppconn/datatype.h /usr/include/cppconn/exception.h \
+ /usr/include/cppconn/prepared_statement.h \
  /usr/include/cppconn/statement.h /usr/include/cppconn/resultset.h \
- /usr/include/c++/11/queue /usr/include/c++/11/bits/stl_queue.h \
- /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/cppconn/statement.h /usr/include/c++/11/queue \
+ /usr/include/c++/11/bits/stl_queue.h /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
@@ -360,15 +410,6 @@ CMakeFiles/server.dir/src/main.cpp.o: \
  /usr/include/cryptopp/config_cxx.h /usr/include/cryptopp/config_dll.h \
  /usr/include/cryptopp/config_int.h /usr/include/cryptopp/config_ns.h \
  /usr/include/cryptopp/config_misc.h /usr/include/cryptopp/stdcpp.h \
- /usr/include/c++/11/climits \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/include/cryptopp/trap.h /usr/include/cryptopp/secblock.h \
  /usr/include/cryptopp/allocate.h /usr/include/cryptopp/misc.h \
  /usr/include/cryptopp/secblockfwd.h /usr/include/cryptopp/smartptr.h \
@@ -377,29 +418,10 @@ CMakeFiles/server.dir/src/main.cpp.o: \
  /usr/include/cryptopp/filters.h /usr/include/cryptopp/queue.h \
  /usr/include/cryptopp/algparam.h /usr/include/cryptopp/integer.h \
  /usr/include/cryptopp/argnames.h /usr/include/cryptopp/filters.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/event.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/visibility.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/event-config.h \
- /usr/include/x86_64-linux-gnu/sys/time.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/util.h \
- /usr/include/netdb.h /usr/include/netinet/in.h \
- /usr/include/x86_64-linux-gnu/sys/socket.h \
- /usr/include/x86_64-linux-gnu/bits/socket.h \
- /usr/include/x86_64-linux-gnu/bits/socket_type.h \
- /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
- /usr/include/x86_64-linux-gnu/asm/socket.h \
- /usr/include/asm-generic/socket.h \
- /usr/include/x86_64-linux-gnu/asm/sockios.h \
- /usr/include/asm-generic/sockios.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/rpc/netdb.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
- /usr/include/x86_64-linux-gnu/bits/netdb.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/listener.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/bufferevent.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/thread.h \
  /home/tiki/Desktop/code/pro/include/ThreadPool.h \
- /home/tiki/Desktop/code/pro/libevent/include/event2/buffer.h \
+ /usr/local/include/event2/thread.h \
+ /home/tiki/Desktop/code/pro/include/Receiver.h \
+ /usr/local/include/event2/buffer.h \
  /usr/include/x86_64-linux-gnu/sys/uio.h \
- /usr/include/x86_64-linux-gnu/bits/uio-ext.h /usr/include/arpa/inet.h
+ /usr/include/x86_64-linux-gnu/bits/uio-ext.h \
+ /usr/local/include/event2/listener.h /usr/include/arpa/inet.h

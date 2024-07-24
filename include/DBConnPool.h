@@ -27,7 +27,6 @@ public:
      * @brief 析构函数
      */
     ~DBConnPool();
-    
     /**
      * @brief 获取一个可用连接
      * @return 如果可用，否则返回null

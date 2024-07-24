@@ -1,14 +1,10 @@
 #pragma once
 
 #include "jsoncpp/json/json.h"
-#include "base64.h"
 #include "ConnMgr.h"
+#include "Sender.h"
 #include "DBConnPool.h"
 #include "md5.h"
-#include <event2/event.h>
-#include <event2/listener.h>
-#include <event2/bufferevent.h>
-#include <event2/thread.h>
 #include <spdlog/spdlog.h>
 #include <string>
 
@@ -24,32 +20,42 @@ public:
      * @param[in] bev 事件集
      * @param[in] str 来自客户的未解析字符串
      */
-    RequestMgr(bufferevent *bev, std::string str);
+    RequestMgr(bufferevent *bev);
 
     ~RequestMgr();
     /**
      * @fn 处理
      * @brief 解析并处理用户的请求
      */
-    void process() const;
+    void process(std::string reqstr);
 private:
     /**
      * @brief 处理登录请求
      * @param[in] data 已解析用户附带数据集
      */
-    void login(Json::Value data) const;
+    void login(Json::Value data);
     /**
      * @brief 处理注册请求
      * @param[in] data 已解析用户附带数据集
      */
-    void signup(Json::Value data) const;
+    void signup(Json::Value data);
     /**
      * @brief 处理上传图片
      * @param[in] data 已解析用户附带数据集
      */
-    void upload(Json::Value data) const;
+    void upload(Json::Value data);
+    /**
+     * @brief 处理用户获取图像列表请求
+     * @param[in] username 申请的用户名
+     */
+    void getlist(const std::string &username);
+    /**
+     * @brief 处理用户获取图片请求
+     * @param[in] data 已解析用户附带数据集
+     */
+    void getimg(Json::Value data);
 
-    // void getlist() const;
-    struct bufferevent *m_bev=nullptr;          // 事件集
-    std::string m_reqstr;                       // 客户端传输的字符串
+private:
+    struct bufferevent *m_bev = nullptr;          // 事件集
+    Json::Value m_retMsg;
 };

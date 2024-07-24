@@ -7,15 +7,17 @@ create table if not exists user_table(
 );
 
 insert into user_table (username, password) 
-        values ('test1', 'E10ADC3949BA59ABBE56E057F20F883E'),
-                ('test2','E35CF7B66449DF565F93C607D5A81D09');
+        values ('test1', 'E10ADC3949BA59ABBE56E057F20F883E'),  -- 123456
+                ('test2','E35CF7B66449DF565F93C607D5A81D09');  -- 456789
                 
 select * from user_table;
-
 
 drop table if exists images_table;
 create table if not exists images_table(
     id int primary key auto_increment,
-    imgname varchar(128) unique not null,
-    imgdata blob 
+    username varchar(32) not null,
+    imgname varchar(128) not null,
+    imgdata longblob,
+    foreign key (username) references user_table(username)
 );
+ 

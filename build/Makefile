@@ -201,6 +201,54 @@ src/DBConnPool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConnPool.cpp.s
 .PHONY : src/DBConnPool.cpp.s
 
+src/EventThread.o: src/EventThread.cpp.o
+.PHONY : src/EventThread.o
+
+# target to build an object file
+src/EventThread.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/EventThread.cpp.o
+.PHONY : src/EventThread.cpp.o
+
+src/EventThread.i: src/EventThread.cpp.i
+.PHONY : src/EventThread.i
+
+# target to preprocess a source file
+src/EventThread.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/EventThread.cpp.i
+.PHONY : src/EventThread.cpp.i
+
+src/EventThread.s: src/EventThread.cpp.s
+.PHONY : src/EventThread.s
+
+# target to generate assembly for a file
+src/EventThread.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/EventThread.cpp.s
+.PHONY : src/EventThread.cpp.s
+
+src/Receiver.o: src/Receiver.cpp.o
+.PHONY : src/Receiver.o
+
+# target to build an object file
+src/Receiver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Receiver.cpp.o
+.PHONY : src/Receiver.cpp.o
+
+src/Receiver.i: src/Receiver.cpp.i
+.PHONY : src/Receiver.i
+
+# target to preprocess a source file
+src/Receiver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Receiver.cpp.i
+.PHONY : src/Receiver.cpp.i
+
+src/Receiver.s: src/Receiver.cpp.s
+.PHONY : src/Receiver.s
+
+# target to generate assembly for a file
+src/Receiver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Receiver.cpp.s
+.PHONY : src/Receiver.cpp.s
+
 src/RequestMgr.o: src/RequestMgr.cpp.o
 .PHONY : src/RequestMgr.o
 
@@ -224,6 +272,30 @@ src/RequestMgr.s: src/RequestMgr.cpp.s
 src/RequestMgr.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/RequestMgr.cpp.s
 .PHONY : src/RequestMgr.cpp.s
+
+src/Sender.o: src/Sender.cpp.o
+.PHONY : src/Sender.o
+
+# target to build an object file
+src/Sender.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Sender.cpp.o
+.PHONY : src/Sender.cpp.o
+
+src/Sender.i: src/Sender.cpp.i
+.PHONY : src/Sender.i
+
+# target to preprocess a source file
+src/Sender.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Sender.cpp.i
+.PHONY : src/Sender.cpp.i
+
+src/Sender.s: src/Sender.cpp.s
+.PHONY : src/Sender.s
+
+# target to generate assembly for a file
+src/Sender.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Sender.cpp.s
+.PHONY : src/Sender.cpp.s
 
 src/Server.o: src/Server.cpp.o
 .PHONY : src/Server.o
@@ -363,9 +435,18 @@ help:
 	@echo "... src/DBConnPool.o"
 	@echo "... src/DBConnPool.i"
 	@echo "... src/DBConnPool.s"
+	@echo "... src/EventThread.o"
+	@echo "... src/EventThread.i"
+	@echo "... src/EventThread.s"
+	@echo "... src/Receiver.o"
+	@echo "... src/Receiver.i"
+	@echo "... src/Receiver.s"
 	@echo "... src/RequestMgr.o"
 	@echo "... src/RequestMgr.i"
 	@echo "... src/RequestMgr.s"
+	@echo "... src/Sender.o"
+	@echo "... src/Sender.i"
+	@echo "... src/Sender.s"
 	@echo "... src/Server.o"
 	@echo "... src/Server.i"
 	@echo "... src/Server.s"

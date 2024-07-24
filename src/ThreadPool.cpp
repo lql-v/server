@@ -2,7 +2,7 @@
 
 ThreadPool::ThreadPool(size_t threads) : m_thread_num(threads) 
 {
-    for (size_t i=0; i<threads; ++i)
+    for (size_t i = 0; i < threads; ++i)
     {
         m_threads.emplace_back([this] { run(); });
     }

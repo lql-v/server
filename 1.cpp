@@ -59,3 +59,64 @@ QByteArray MainWindow::getInput(QString request)
 
     return codeStr;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 获取输入缓冲区
+    struct evbuffer *evbuf = bufferevent_get_input(bev);
+    // 读取缓冲区有数据的大小
+    size_t len = evbuffer_get_length(evbuf);
+    // 数据量小于8 不对劲直接返回
+    if(len < 8) return;
+
+    // 读出前8个字节
+    char head[9];
+    evbuffer_copyout(evbuf, head, 8);
+    uint32_t magic = ntohl(*(uint32_t *)head);
+    uint32_t datalen = ntohl(*(uint32_t *)(head + 4));
+    
+    // 魔数比较
+        // 接受数据还不足以处理
+        if(datalen + 8 > len)
+        {   
+            bufferevent_setwatermark(bev, EV_READ, len , 0);
+            return;
+        }
+        // 接受数据足够
+        else
+        {        
+            evbuffer_drain(evbuf, 8);
+            len -= 8;
+            bufferevent_setwatermark(bev, EV_READ, 0, 0);
+            std::string rec;
+            while(len > 0)
+            {   
+                char buf[4096];
+                int size = (len <= 4096) ? len : 4096;
+                // 读取并丢弃数据
+                bufferevent_read(bev, buf, size);
+                rec.append(buf, size);
+                len -= size;
+            }
+            // 创建需求管理器
+            spdlog::default_logger()->debug("接受到消息大小：{}", rec.size());
+            RequestMgr reqmgr(bev, rec);
+            // 解析需求并执行相应函数
+            reqmgr.process();
+            return;
+        }

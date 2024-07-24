@@ -1,69 +1,64 @@
 #include "RequestMgr.h"
 #include <iostream>
 
-RequestMgr::RequestMgr(bufferevent *bev, std::string str) : 
-                            m_bev(bev) , m_reqstr(str) {}
+RequestMgr::RequestMgr(bufferevent *bev) : m_bev(bev) {}
 
 RequestMgr::~RequestMgr() {}
 
-
-
-void RequestMgr::process() const
+void RequestMgr::process(std::string reqstr)
 {   
-    // spdlog::default_logger()->debug("服务器读取了一条信息 {} ", m_reqstr);
-
-    // base64解码字符串 
-    std::string str = base64_decode(m_reqstr);
-    
-    // 解码错误处理
-
-
     // 解析json数据
     Json::Reader reader;
     Json::Value root;
-    if (!reader.parse(str, root)) {
-        // std::thread::id current_thread = std::this_thread::get_id();        
-        // std::cout << "Current thread ID: " << current_thread << std::endl;
+    if (!reader.parse(reqstr, root)) {
         spdlog::default_logger()->error("json解析出错");	
         return;
     };
     std::string req = root["request"].asString();
     Json::Value userdata = root["userdata"];
-    
+    std::string username = root["username"].asString();
+
     if (req == "login")            // 登录
     {   
         login(userdata);
     }
     else if (req == "signup")     // 注册 
-    {
+    {   
         signup(userdata);
     }
     else if (req == "upload")
     {
-        spdlog::default_logger()->debug("接受到获取云列表请求");
         upload(userdata);
+    }
+    else if (req == "getlist")
+    {
+        getlist(username);
+    }
+    else if (req == "getimg")
+    {
+        getimg(userdata);
     }
     else
     {
         spdlog::default_logger()->error("错误请求: {}", req);
     }
+
+    // 发回数据
+    Sender sender(m_bev, m_retMsg);
+    sender.sendMsg();
     return;
 }
 
 // 登录处理
-void RequestMgr::login(Json::Value data) const 
+void RequestMgr::login(Json::Value data) 
 {
     // 获取姓名和密码
     std::string name = data["username"].asString();
     std::string pwd = data["password"].asString();
     pwd = md5(pwd);
 
-    Json::Value RetMsg;
-#ifdef __DEBUG
-    int getStatus = 0;
-#endif
-    RetMsg["status"] = 0;
-    RetMsg["msg"] = "登录成功";
+    m_retMsg["status"] = 0;
+    m_retMsg["msg"] = "登录成功";
 
     // 判断是否存在，存在立刻返回
     if(!ConnMgr::getinstance()->Isexist(name)){
@@ -75,11 +70,8 @@ void RequestMgr::login(Json::Value data) const
         
         // 数据库是否存在
         if(!conn->next()){
-            RetMsg["status"] = 1;
-#ifdef __DEBUG
-            getStatus = 1;
-#endif
-            RetMsg["msg"] = "账号不存在或账号密码错误";
+            m_retMsg["status"] = 1;
+            m_retMsg["msg"] = "账号不存在或账号密码错误";
         }
         else
         {
@@ -94,33 +86,10 @@ void RequestMgr::login(Json::Value data) const
         DBConnPool::getinstance()->releaseConn(conn);
     }
     
-    // 生成回复json
-    Json::StreamWriterBuilder writer;
-    std::string ret_str = Json::writeString(writer, RetMsg);
-    
-    // base64 编码
-    ret_str=base64_encode(ret_str);
-    const char *ret =ret_str.c_str();
-
-#ifdef __DEBUG
-    if(getStatus == 0)
-    {
-        spdlog::default_logger()->debug("返回数据未发生错误");
-    }
-    else
-    {
-        spdlog::default_logger()->error("返回出错数据");
-    }
-#endif    
-
-    bufferevent_enable(m_bev, EV_WRITE);  
-
-    // 写回数据
-    bufferevent_write(m_bev, ret, strlen(ret));
     return;
 }
 
-void RequestMgr::signup(Json::Value data) const 
+void RequestMgr::signup(Json::Value data) 
 {
     // 获取姓名和密码
     std::string name = data["username"].asString();
@@ -128,9 +97,8 @@ void RequestMgr::signup(Json::Value data) const
     pwd = md5(pwd);
     spdlog::default_logger()->info("用户{}请求注册", name);
 
-    Json::Value RetMsg;
-    RetMsg["status"] = 0;
-    RetMsg["msg"] = "注册成功";
+    m_retMsg["status"] = 0;
+    m_retMsg["msg"] = "注册成功";
 
     // 获取数据库连接
     DBConn *conn = DBConnPool::getinstance()->getConn();
@@ -138,8 +106,8 @@ void RequestMgr::signup(Json::Value data) const
                             + name + "\';";
     // 检验用户名是否存在
     if(conn->next()){
-        RetMsg["status"] = 2;
-        RetMsg["msg"] = "用户名已存在";
+        m_retMsg["status"] = 2;
+        m_retMsg["msg"] = "用户名已存在";
     } 
     else 
     {
@@ -149,34 +117,62 @@ void RequestMgr::signup(Json::Value data) const
        int ret = conn->update(sqlstr);
        if(ret == -1)
        {
-            RetMsg["status"] = 2;
-            RetMsg["msg"] = "插入数据库失败";
+            m_retMsg["status"] = 2;
+            m_retMsg["msg"] = "插入数据库失败";
        }
     }
 
     // 释放结果集并归还数据库连接
     conn->freeResSet();
     DBConnPool::getinstance()->releaseConn(conn);
-
-    // 生成回复json
-    Json::StreamWriterBuilder writer;
-    std::string ret_str = Json::writeString(writer, RetMsg);
-    
-    // base64 编码
-    ret_str=base64_encode(ret_str);
-    const char *ret =ret_str.c_str();
-
-    spdlog::default_logger()->info("返回数据:\n {}", ret);
-    
-    // 写回数据
-    bufferevent_write(m_bev, ret, strlen(ret));
     return;
 }
 
-void RequestMgr::upload(Json::Value data) const 
+void RequestMgr::upload(Json::Value data) 
 {
-    spdlog::default_logger()->error("上传了图片!");
+    // 回复数据
+    m_retMsg["status"] = 0;
+
+    // 提取用户数据
+    std::string username = data["username"].asString();
+    std::string imgname = data["imgname"].asString();
+    std::string imgdata = data["imgdata"].asString();
+
+    // 查询是否存在
+    std::string sqlstr = "select id from images_table where username=\'" 
+                            + username + "\' and imgname = \'" + imgname + "\';";
+    // 获取数据库连接
+    DBConn *conn = DBConnPool::getinstance()->getConn();
+    conn->query(sqlstr);
+    // 用户图片已存在
+    if(conn->next())
+    {
+        m_retMsg["status"] = 3;
+        m_retMsg["imgname"] = imgname;
+    }
+    // 用户图片不存在
+    else
+    {   
+        // 插入数据库
+        if(!conn->prepareUpdate(username, imgname, imgdata))
+        {
+            m_retMsg["status"] = 4;
+            m_retMsg["imgname"] = imgname;
+        }
+    }
+    // 释放资源
+    conn->freeResSet();
+    DBConnPool::getinstance()->releaseConn(conn);
+
+    return;
+}
+
+void RequestMgr::getlist(const std::string &username)  
+{
 
 }
 
-// void RequestMgr::Getlist() const {}
+void RequestMgr::getimg(Json::Value data) 
+{
+
+}
