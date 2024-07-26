@@ -22,9 +22,21 @@ bool ConnMgr::Isexist(const std::string username) const
     return m_conns.find(username)!=m_conns.end();
 }
 
-void ConnMgr::Add(const std::string username)
+void ConnMgr::Add(const std::string username, const int fd)
 {
-    m_conns.insert(username);
+    m_conns["username"] = fd;
+    return;
+}
+
+void ConnMgr::Remove(const int fd)
+{
+    for(auto it = m_conns.begin(); it != m_conns.end(); ++it)
+    {
+        if (it->second == fd) {
+            m_conns.erase(it);  // 删除当前迭代器指向的键值对
+            return;  // 找到并删除后可以退出循环
+        }
+    }
     return;
 }
 

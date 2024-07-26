@@ -3,12 +3,7 @@
 Server::Server() {}
 
 Server::~Server()
-{
-    if(m_pool != nullptr)
-    {
-        delete m_pool;
-        m_pool = nullptr;
-    }    
+{  
     if(m_listener != nullptr)
     {
         evconnlistener_free(m_listener);
@@ -69,16 +64,13 @@ void Server::init()
     m_sin.sin_port = htons(8080);
 
     // 初始化监听器
-    m_listener = evconnlistener_new_bind(m_base, accept_cb, this,
+    m_listener = evconnlistener_new_bind(m_base, accept_cb, m_base,
                             LEV_OPT_REUSEABLE | LEV_OPT_CLOSE_ON_FREE, -1,
                             (sockaddr*)&m_sin, sizeof(m_sin));
     if(m_listener == nullptr){
         spdlog::default_logger()->error("listener 创建失败");
         exit(1);
     }
-
-    // 初始化线程池
-    // m_pool=new ThreadPool(8);
 }
 
 // 接受连接回调函数
@@ -90,19 +82,12 @@ void accept_cb(evconnlistener *listener, evutil_socket_t fd,
 	spdlog::default_logger()->info("ip:{} fd:{} 客户端连接 ", ip, fd);	
 
     // 获取事件处理器
-    Server *serv = static_cast<Server*>(arg);
-    // 创建bufferevent 并指定事件处理器
-    struct bufferevent *bev = bufferevent_socket_new(serv->m_base, fd, BEV_OPT_CLOSE_ON_FREE);
+    struct event_base *base = static_cast<event_base*>(arg);
+    struct bufferevent *bev = bufferevent_socket_new(base, fd, BEV_OPT_CLOSE_ON_FREE);
    
     // 设置读写回调函数
     bufferevent_setcb(bev, read_cb, NULL, event_cb, bev);
     bufferevent_enable(bev, EV_READ | EV_WRITE);
-
-    // serv->m_pool->enqueue([bev]
-    // {   
-    //     bufferevent_setcb(bev, read_cb, write_cb, NULL, nullptr);
-    //     bufferevent_enable(bev, EV_READ);
-    // });  
 }
 
 // 读回调函数
@@ -127,6 +112,7 @@ void event_cb(bufferevent *bev, short what, void *arg)
     {
         evutil_socket_t fd = bufferevent_getfd(bev);
         spdlog::default_logger()->info("客户端 {} 断开连接", fd);
+        ConnMgr::getinstance()->Remove(fd);
     }
     bufferevent_free(bev);
 }

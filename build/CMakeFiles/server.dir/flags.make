@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -D__DEBUG
 
-CXX_INCLUDES = -I/home/tiki/Desktop/code/pro/include -I/home/tiki/Desktop/code/pro/include/libevent
+CXX_INCLUDES = -I/home/tiki/Desktop/code/pro/src/include
 
 CXX_FLAGS = 
 

@@ -201,30 +201,6 @@ src/DBConnPool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/DBConnPool.cpp.s
 .PHONY : src/DBConnPool.cpp.s
 
-src/EventThread.o: src/EventThread.cpp.o
-.PHONY : src/EventThread.o
-
-# target to build an object file
-src/EventThread.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/EventThread.cpp.o
-.PHONY : src/EventThread.cpp.o
-
-src/EventThread.i: src/EventThread.cpp.i
-.PHONY : src/EventThread.i
-
-# target to preprocess a source file
-src/EventThread.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/EventThread.cpp.i
-.PHONY : src/EventThread.cpp.i
-
-src/EventThread.s: src/EventThread.cpp.s
-.PHONY : src/EventThread.s
-
-# target to generate assembly for a file
-src/EventThread.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/EventThread.cpp.s
-.PHONY : src/EventThread.cpp.s
-
 src/Receiver.o: src/Receiver.cpp.o
 .PHONY : src/Receiver.o
 
@@ -321,30 +297,6 @@ src/Server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Server.cpp.s
 .PHONY : src/Server.cpp.s
 
-src/ThreadPool.o: src/ThreadPool.cpp.o
-.PHONY : src/ThreadPool.o
-
-# target to build an object file
-src/ThreadPool.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ThreadPool.cpp.o
-.PHONY : src/ThreadPool.cpp.o
-
-src/ThreadPool.i: src/ThreadPool.cpp.i
-.PHONY : src/ThreadPool.i
-
-# target to preprocess a source file
-src/ThreadPool.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ThreadPool.cpp.i
-.PHONY : src/ThreadPool.cpp.i
-
-src/ThreadPool.s: src/ThreadPool.cpp.s
-.PHONY : src/ThreadPool.s
-
-# target to generate assembly for a file
-src/ThreadPool.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ThreadPool.cpp.s
-.PHONY : src/ThreadPool.cpp.s
-
 src/base64.o: src/base64.cpp.o
 .PHONY : src/base64.o
 
@@ -435,9 +387,6 @@ help:
 	@echo "... src/DBConnPool.o"
 	@echo "... src/DBConnPool.i"
 	@echo "... src/DBConnPool.s"
-	@echo "... src/EventThread.o"
-	@echo "... src/EventThread.i"
-	@echo "... src/EventThread.s"
 	@echo "... src/Receiver.o"
 	@echo "... src/Receiver.i"
 	@echo "... src/Receiver.s"
@@ -450,9 +399,6 @@ help:
 	@echo "... src/Server.o"
 	@echo "... src/Server.i"
 	@echo "... src/Server.s"
-	@echo "... src/ThreadPool.o"
-	@echo "... src/ThreadPool.i"
-	@echo "... src/ThreadPool.s"
 	@echo "... src/base64.o"
 	@echo "... src/base64.i"
 	@echo "... src/base64.s"

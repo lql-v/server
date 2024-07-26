@@ -1,6 +1,7 @@
 CMakeFiles/server.dir/src/base64.cpp.o: \
  /home/tiki/Desktop/code/pro/src/base64.cpp /usr/include/stdc-predef.h \
- /home/tiki/Desktop/code/pro/include/base64.h /usr/include/c++/11/string \
+ /home/tiki/Desktop/code/pro/src/include/base64.h \
+ /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

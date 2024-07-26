@@ -111,29 +111,6 @@ std::string DBConn::value(std::string key)
     return res;
 }
 
-// 准备语句插入图片数据
-bool DBConn::prepareUpdate(std::string username, std::string imgname, std::string imgdata)
-{
-    try
-    {    
-        sql::PreparedStatement *stmt = m_conn->prepareStatement
-        ("INSERT INTO images_table (username, imgname, imgdata) VALUES (?, ?, ?)");
-        stmt->setString(1, username);
-        stmt->setString(2, imgname);
-        std::istringstream blob_stream(imgdata);
-        stmt->setBlob(3, &blob_stream);
-        stmt->execute();
-        freeResSet();      
-        delete stmt;
-    }
-    catch (sql::SQLException &e) 
-    {
-        spdlog::default_logger()->error("插入图像数据失败：{}", e.what());
-        return false;
-    }
-    return true;
-}
-
 // 释放结果集
 void DBConn::freeResSet()
 {

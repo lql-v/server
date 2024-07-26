@@ -1,7 +1,7 @@
 CMakeFiles/server.dir/src/ThreadPool.cpp.o: \
  /home/tiki/Desktop/code/pro/src/ThreadPool.cpp \
  /usr/include/stdc-predef.h \
- /home/tiki/Desktop/code/pro/include/ThreadPool.h \
+ /home/tiki/Desktop/code/pro/src/include/ThreadPool.h \
  /usr/local/include/event2/thread.h \
  /usr/local/include/event2/visibility.h \
  /usr/local/include/event2/event-config.h /usr/include/c++/11/thread \
