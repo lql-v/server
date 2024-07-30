@@ -79,7 +79,6 @@ bool DBConn::next()
 {   
     if(m_res == nullptr) 
     {
-        spdlog::default_logger()->info("查询结果集为空");
         return false;
     }
     return m_res->next();

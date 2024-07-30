@@ -1,5 +1,5 @@
 #include "Sender.h"
-
+#include <iostream>
 Sender::Sender(struct bufferevent *bev, Json::Value msg) :
                 m_bev(bev), m_msg(msg) {}
 

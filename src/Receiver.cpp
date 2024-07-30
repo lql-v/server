@@ -1,4 +1,5 @@
 #include "Receiver.h"
+#include <iostream>
 
 Receiver::Receiver(struct bufferevent *bev) : m_bev(bev) {}
 
@@ -25,24 +26,30 @@ bool Receiver::getInput()
         evbuffer_drain(m_evbuf, len);
         return false;
     }
+
     // 检查长度是否符合可读（数据足够才可读）
-    if(!checkLen(head, len))
+    uint32_t datalen = ntohl(*(uint32_t *)(head + 4));
+    if(datalen + 8 > len)
     {
+        bufferevent_setwatermark(m_bev, EV_READ, datalen+8, 0);
         return false;
     }
 
+    // 恢复水位
+    bufferevent_setwatermark(m_bev, EV_READ, 0, 0);
+
     // 丢弃包头
     evbuffer_drain(m_evbuf, 8);
-    len -= 8;
+
     // 循环读空数据
-    while(len > 0)
+    while(datalen > 0)
     {
         char buf[4096];
-        int size = (len <= 4096) ? len : 4096;
+        int size = (datalen <= 4096) ? datalen : 4096;
         // 读取并丢弃数据
         bufferevent_read(m_bev, buf, size);
         m_str.append(buf, size);
-        len -= size;
+        datalen -= size;
     }
     return true;
 }
@@ -58,20 +65,4 @@ bool Receiver::checkHeader(const char *header)
 {
     uint32_t magic = ntohl(*(uint32_t *)header);
     return magic == 17171717;
-}
-
-// 检查包头长度是否符合可读
-bool Receiver::checkLen(const char *header, size_t len)
-{   
-    // 用户数据长度
-    uint32_t datalen = ntohl(*(uint32_t *)(header + 4));
-    if(datalen + 8 > len)
-    {   
-        // 调整低水位
-        bufferevent_setwatermark(m_bev, EV_READ, len, 0);
-        return false;
-    }
-    // 恢复低水位
-    bufferevent_setwatermark(m_bev, EV_READ, 0, 0);
-    return true;
 }

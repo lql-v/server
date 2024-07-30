@@ -22,4 +22,4 @@ link_directories(${PROJECT_SOURCE_DIR}/lib/)
 target_link_libraries(server ${LINK_LIB})
 
 # 添加 DEBUG 宏
-add_definitions(-D__DEBUG)
+#  add_definitions(-D__DEBUG)

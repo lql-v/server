@@ -2,7 +2,8 @@
 
 ConnMgr* ConnMgr::m_instance=nullptr;
 std::mutex ConnMgr::m_mutex;
-
+ 
+// 获取连接管理类实例
 ConnMgr* ConnMgr::getinstance()
 {
     if (m_instance == nullptr)
@@ -17,17 +18,20 @@ ConnMgr* ConnMgr::getinstance()
     return m_instance;
 }
 
+// 是否存在某一名为username用户
 bool ConnMgr::Isexist(const std::string username) const 
 {
     return m_conns.find(username)!=m_conns.end();
 }
 
+// 添加用户及其fd
 void ConnMgr::Add(const std::string username, const int fd)
 {
     m_conns["username"] = fd;
     return;
 }
 
+// 删除用户
 void ConnMgr::Remove(const int fd)
 {
     for(auto it = m_conns.begin(); it != m_conns.end(); ++it)

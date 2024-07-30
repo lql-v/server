@@ -107,12 +107,17 @@ void read_cb(bufferevent *bev, void *arg)
 
 void event_cb(bufferevent *bev, short what, void *arg)
 {
+    evutil_socket_t fd = bufferevent_getfd(bev);
     // 客户端断开连接
     if(what & BEV_EVENT_EOF)
     {
-        evutil_socket_t fd = bufferevent_getfd(bev);
         spdlog::default_logger()->info("客户端 {} 断开连接", fd);
-        ConnMgr::getinstance()->Remove(fd);
     }
+    else if (what & BEV_EVENT_ERROR) {
+        spdlog::default_logger()->info("客户端 {} 发生错误", fd);
+    }
+    // 移除登录信息
+    ConnMgr::getinstance()->Remove(fd);
+    // 释放缓冲事件
     bufferevent_free(bev);
 }

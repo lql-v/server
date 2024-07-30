@@ -36,13 +36,6 @@ private:
      * @return 包头正确可读返回true
      */
     bool checkHeader(const char *header);
-    /**
-     * @brief 检查包头数据长度，判断数据是否达到可读条件
-     * @param[in] header 包头数组指针
-     * @param[in] len 已有数据长度
-     * @return 数据可读后读入m_str并返回true
-     */    
-    bool checkLen(const char *header, size_t len);
 private:
     struct bufferevent *m_bev;      // 事件集   
     struct evbuffer *m_evbuf;       // 输入缓冲区
