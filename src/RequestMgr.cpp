@@ -163,7 +163,7 @@ void RequestMgr::upload(Json::Value data)
     else
     {   
         // 文件目录检测
-        std::string imgpath = "/home/tiki/Image/" + username;
+        std::string imgpath = "/home/Image/" + username;
         struct stat st;
         // 目录不存在
         if(stat(imgpath.c_str(), &st) == -1)

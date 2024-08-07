@@ -1,6 +1,7 @@
 #pragma once
 #include<mutex>
 #include<unordered_map>
+#include<string>
 
 /**
  * @class 连接管理类

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../bin/server"
-  "../bin/server.pdb"
+  "/home/server/bin/server"
+  "/home/server/bin/server.pdb"
   "CMakeFiles/server.dir/src/ConnMgr.cpp.o"
   "CMakeFiles/server.dir/src/ConnMgr.cpp.o.d"
   "CMakeFiles/server.dir/src/DBConn.cpp.o"
