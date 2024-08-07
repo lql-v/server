@@ -1,5 +1,5 @@
 -- 创建数据库和初始化连接用户
-create database server;
+create database if not exists server;
 create user 'mgr'@'%' identified by '123456';
 grant all privileges on *.* to 'mgr'@'%';
 flush privileges;
@@ -27,5 +27,5 @@ insert into user_table (username, password)
         values ('test1', 'E10ADC3949BA59ABBE56E057F20F883E'),  -- 123456
                 ('test2','E35CF7B66449DF565F93C607D5A81D09');  -- 456789
                 
-select * from user_table;
-select * from images_table;
+-- select * from user_table;
+-- select * from images_table;

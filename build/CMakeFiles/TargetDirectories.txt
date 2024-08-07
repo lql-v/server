@@ -1,3 +1,0 @@
-/home/server/build/CMakeFiles/server.dir
-/home/server/build/CMakeFiles/edit_cache.dir
-/home/server/build/CMakeFiles/rebuild_cache.dir
