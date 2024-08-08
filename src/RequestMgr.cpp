@@ -112,6 +112,7 @@ void RequestMgr::signup(Json::Value data)
     DBConn *conn = DBConnPool::getinstance()->getConn();
     std::string sqlstr = "select * from user_table where \'username\'=\'" 
                             + name + "\';";
+    conn->query(sqlstr);
     // 检验用户名是否存在
     if(conn->next()){
         m_retMsg["status"] = 2;
