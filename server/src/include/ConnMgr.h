@@ -35,7 +35,7 @@ public:
      */
     void Remove(const int fd);
 private:
-    std::unordered_map<std::string, int> m_conns;           // 记录用户登录清空
+    std::unordered_map<std::string, int> m_conns;           // 记录用户登录情况
     static ConnMgr* m_instance;                             // 连接管理类实例
 	static std::mutex m_mutex;                              // 保障线程安全
 	ConnMgr(){};
