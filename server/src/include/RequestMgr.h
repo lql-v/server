@@ -28,26 +28,30 @@ public:
 
     ~RequestMgr();
     /**
-     * @fn 处理
-     * @brief 解析并处理用户的请求
+     * @brief 解析并处理用户的http请求
+     * @param[in] reqstr 完整的http请求报文string
      */
     void process(std::string reqstr);
 private:
     /**
      * @brief 处理登录请求
-     * @param[in] data 已解析用户附带数据集
+     * @param[in] username 请求登录的用户名
+     * @param[in] password 请求登录的密码
      */
-    void login(Json::Value data);
+    void login(const std::string &username, const std::string &password);
     /**
      * @brief 处理注册请求
-     * @param[in] data 已解析用户附带数据集
+     * @param[in] username 请求注册的用户名
+     * @param[in] password 请求注册的密码
      */
-    void signup(Json::Value data);
+    void signup(const std::string &username, const std::string &password);
     /**
      * @brief 处理上传图片
-     * @param[in] data 已解析用户附带数据集
+     * @param[in] username 请求上传图片的用户名
+     * @param[in] imgname 请求上传图片的图片名
+     * @param[in] imgdata 图片数据
      */
-    void upload(Json::Value data);
+    void upload(const std::string &username, const std::string &imgname, const std::string &imgdata);
     /**
      * @brief 处理用户获取图像列表请求
      * @param[in] username 申请的用户名
@@ -55,11 +59,10 @@ private:
     void getlist(const std::string &username);
     /**
      * @brief 处理用户获取图片请求
-     * @param[in] data 已解析用户附带数据集
+     * @param[in] username 获取图片用户名
+     * @param[in] imgname 图片名
      */
-    void getimg(Json::Value data);
-
+    void getimg(const std::string &username, const std::string &imgname);
 private:
     struct bufferevent *m_bev = nullptr;          // 事件集
-    Json::Value m_retMsg;
 };

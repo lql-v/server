@@ -17,6 +17,7 @@ add_executable(server ${SRC_LIST})
 
 # 链接第三方库
 # 链接库依赖文件
+include_directories(${PROJECT_SOURCE_DIR}/include)
 link_directories(${PROJECT_SOURCE_DIR}/lib/)
 # 链接系统动态库
 target_link_libraries(server ${LINK_LIB})

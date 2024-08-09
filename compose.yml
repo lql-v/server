@@ -10,10 +10,10 @@ networks:
 
 services:
   server:
-    image: server:v1.1
+    image: server:v2
     container_name: server
     ports:
-      - "8080:8080"
+      - "8081:8081"
     networks:
       tiki:
         ipv4_address: 172.20.0.2
