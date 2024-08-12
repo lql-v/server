@@ -15,10 +15,10 @@ Server::~Server()
         event_base_free(m_base);
         m_base = nullptr;
     }
-    spdlog::default_logger()->info("服务器关闭");
 #ifdef _WIN32
     WSACleanup();
 #endif
+    spdlog::default_logger()->info("服务器关闭");
 }
 
 // 服务器运行
@@ -61,7 +61,7 @@ void Server::init()
 
     // 初始化服务端socket
     m_sin.sin_family = AF_INET;
-    m_sin.sin_port = htons(8080);
+    m_sin.sin_port = htons(m_port);
 
     // 初始化监听器
     m_listener = evconnlistener_new_bind(m_base, accept_cb, m_base,

@@ -57,7 +57,7 @@ bool Receiver::getInput()
 // 返回解码的用户数据
 std::string Receiver::getData()
 {
-    return base64_decode(m_str);
+    return m_str;
 }
 
 // 检查包头的魔数信息

@@ -20,14 +20,14 @@ ConnMgr* ConnMgr::getinstance()
 
 // 是否存在某一名为username用户
 bool ConnMgr::Isexist(const std::string username) const 
-{
+{   
     return m_conns.find(username)!=m_conns.end();
 }
 
 // 添加用户及其fd
 void ConnMgr::Add(const std::string username, const int fd)
 {
-    m_conns["username"] = fd;
+    m_conns[username] = fd;
     return;
 }
 
