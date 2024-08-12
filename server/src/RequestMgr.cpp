@@ -214,6 +214,8 @@ void RequestMgr::upload(const std::string &username, const std::string &imgname,
     // 释放资源
     conn->freeResSet();
     DBConnPool::getinstance()->releaseConn(conn);
+    Sender sender(m_bev);    
+    sender.sendOK();
     return;
 }
 
