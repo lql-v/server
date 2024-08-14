@@ -43,6 +43,7 @@ void ConnMgr::Remove(const int fd)
     {
         if (it->second == fd) {
             m_conns.erase(it);  // 删除当前迭代器指向的键值对
+            return;
         }
     }
     return;
